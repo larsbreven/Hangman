@@ -7,94 +7,129 @@ namespace Hangman
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            // 
 
-            Console.WriteLine();
-            Console.WriteLine("Please use our basic calculator to do a calculation");
-            Console.WriteLine("It is easy to use, just follow the instructions below");
-            Console.WriteLine();
-            Console.WriteLine();
+            //UserInstruction();  // Guidelines and rules for the game presented on the screen for the user
+            InitSecretWord(); // This is where the secret word is randomized and where the secret words are defined and stored
+
+
             do
+
             {
-                Console.WriteLine("Enter a number from the menu below for the desired calculation");
-                Console.WriteLine("\n1: Addition\n2: Subtraction\n3: Multiplication\n4: Division\n");
-                char userInput = Console.ReadKey(true).KeyChar;
-                switch (userInput)
+
+                Console.WriteLine("Please select how you would like to guess the word\n1: By a single character\n2: By a full word");
+                Console.WriteLine();
+
+                char userKeyPress = Console.ReadKey(true).KeyChar;
+
+                switch (userKeyPress)
                 {
                     case '1':
-                        Addition();
+                        SingleChar();
                         break;
+
                     case '2':
-                        Subtraction();
-                        break;
-                    case '3':
-                        Multiplication();
-                        break;
-                    case '4':
-                        Division();
+                        FullWord();
                         break;
 
                     default:
+                        Console.WriteLine("You have entered the wrong number");
                         break;
                 }
+                Console.WriteLine("Press y to continue or another key too exit.");
+            } while (Console.ReadKey(true).KeyChar == 'y');
+
+        }
+
+        static void UserInstruction()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Welcome to your free trial of Hangman");
+            Console.WriteLine();
+            Console.WriteLine("It is simple to use, the instruction how to use it is as following:");
+            Console.WriteLine();
+            Console.WriteLine("You should guess a word with a maximum length of 4 characters.");
+            Console.WriteLine("You will have 10 trials to guess the word, otherwise the computer win and you will lose the game.");
+            Console.WriteLine();
+            Console.WriteLine("You have two different options to play the game:");
+            Console.WriteLine("The first option is to guess a specific character in a word of 4 characters.");
+            Console.WriteLine("The second option is to guess for a complete word with 4 characters selected by the computer.");
+            Console.WriteLine("Note that in option 2 you will win the whole game if you guess the right word within 10 trials.");
+            Console.WriteLine();
+        }
+
+        static void InitSecretWord()
+        {
+            string[] secretWord = new string[10];
+            secretWord[0] = "olle";
+            secretWord[1] = "karl";
+            secretWord[2] = "bo";
+            secretWord[3] = "ulf";
+            secretWord[4] = "pia";
+            secretWord[5] = "ann";
+            secretWord[6] = "mona";
+            secretWord[7] = "nina";
+            secretWord[8] = "lisa";
+            secretWord[9] = "ida";
+
+            Random rnd = new Random();
+            int rndName = (rnd.Next(0, 9)); // If the amount of secret words is changed, change this parameter accordingly
+            string secretWordDefined = secretWord[rndName];
+
+            string [] secretChar = new string[4];
+            secretChar[0] = "l";
+            secretChar[1] = "a";
+            secretChar[2] = "r";
+            secretChar[3] = "s";
+            Console.WriteLine("Skriv ut Secretchar " + rndName);
+            Console.WriteLine("Skriv ut Secretchar " + secretChar[3]);
+
+        }
+
+        static void SingleChar()
+        {
+            for (int i = 1; i < 7; i++)
+            {
                 Console.WriteLine();
-                Console.WriteLine("Press c to continue, any other key to exit the calculator ");
+                Console.Write("\tDu har så här många försök kvar " + (7-i));
+                Console.WriteLine("Please type your character: ");
+                char userKeyInput = Console.ReadKey(true).KeyChar;
+                if (userKeyInput == 'l' )
+                {
+                  //  Console.WriteLine("Du har tryckt på l " + secretChar[0]);
+                    Console.WriteLine("your guess is right");
+                  //   Console.WriteLine("Skriv ut Secretchar " + secretChar[3]);
+
+                }
+                if (userKeyInput == 'a')
+                {
+                Console.WriteLine("your guess is right");
+                }
+                if (userKeyInput == 'r')
+                    {
+                    Console.WriteLine("your guess is right");
+                    }
+                if (userKeyInput == 's')
+                    {
+                    Console.WriteLine("your guess is right");
+                    }
+                Console.WriteLine("your guess is wrong");
             }
-            while (Console.ReadKey(true).KeyChar == 'c');
         }
 
-        static void Addition()
+        static void FullWord()
         {
-            Console.WriteLine("");
-            Console.Write("Enter the first number to be calculated : ");
-            double FirstNum = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter the second number to be calculated: ");
-            double SecondNum = Convert.ToDouble(Console.ReadLine());
-            double TheResult = FirstNum + SecondNum;
-            Console.WriteLine("The result of the calculation is:         " + TheResult);
-        }
+            Console.Write("Count down to zero from: ");
+            int number = Convert.ToInt32(Console.ReadLine());
 
-        static void Subtraction()
-        {
-            Console.WriteLine("");
-            Console.Write("Enter the first number to be calculated : ");
-            double FirstNum = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter the second number to be calculated: ");
-            double SecondNum = Convert.ToDouble(Console.ReadLine());
-            double TheResult = FirstNum - SecondNum;
-            Console.WriteLine("The result of the calculation is:         " + TheResult);
-        }
-
-        static void Multiplication()
-        {
-            Console.WriteLine("");
-            Console.Write("Enter the first number to be calculated : ");
-            double FirstNum = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter the second number to be calculated: ");
-            double SecondNum = Convert.ToDouble(Console.ReadLine());
-            double TheResult = FirstNum * SecondNum;
-            Console.WriteLine("The result of the calculation is:         " + TheResult);
-        }
-
-        static void Division()
-        {
-            Console.WriteLine("");
-            Console.Write("Enter the first number to be calculated:  ");
-            double FirstNum = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter the second number to be calculated: ");
-            double SecondNum = Convert.ToDouble(Console.ReadLine());
-            if (SecondNum == 0)
+            while (number >= 0)
             {
-                Console.WriteLine("");
-                Console.WriteLine("You have entered: " + SecondNum);
-                Console.WriteLine("Please note the entered value is not valid");
+                Console.WriteLine("Number is: " + number--);
             }
-            else
-            {
-                double TheResult = FirstNum / SecondNum;
-                Console.WriteLine("The result of the calculation is:         " + TheResult);
-            }
+        }
+
+        static void AboutMe()
+        {
+            Console.WriteLine("My name is Ulf");
         }
 
         static string AskUserFor(string what)
@@ -108,20 +143,5 @@ namespace Hangman
             return Convert.ToInt32(AskUserFor(what));
         }
 
-
-    }
-
-       
-
-       
-
-
-
-
-
-
-
-
-       
-    
-}
+    } //end of class program
+} // end of namespace
