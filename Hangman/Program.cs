@@ -7,9 +7,15 @@ namespace Hangman
     {
         static void Main(string[] args)
         {
-            //UserInstruction();    // Guidelines and rules for the game presented on the screen for the user
-            //InitSecretWord();     // Secret word is randomized, defined and stored
-            //PlayCheckGuess();     // Guess the secret word and check result
+            //UserInstruction();                                            // Guidelines and rules for the game presented on the screen for the user
+            //InitSecretWord();                                             // Secret word is randomized, defined and stored
+            //PlayCheckGuess();                                             // Guess the secret word and check result
+            //Secretword()                                                  // Letter is in secret word, replace symbols in Char Array
+            //AddtoStringbuild();                                           // Letter is not in secret word, add letter in Stringbuilder
+            //ReduceGuesses();                                              // Get information from arrays if letters was in secret word or not
+            //WinOrNot();                                                   // Go to either win procedure or to new guesses 
+            //Output();                                                     // Inform on console about the win
+
 
 
             Console.WriteLine();                                            // Guidelines and rules presented on the screen
@@ -43,8 +49,8 @@ namespace Hangman
             char[] ArraySecretChar = secretWordDefined.ToCharArray();       // Use ToCharArray to convert string to array
             for (int i = 0; i < ArraySecretChar.Length; i++)                // Loop through the array
             {                                                               // Can be removed, check values on console
-                                                                            // Console.WriteLine(ArraySecretChar[i]);                       // Write character to console
-            }                                                                                                                  // Can be removed, only to check values on console
+                                                                            // Console.WriteLine(ArraySecretChar[i]); --- Write character to console
+            }                                                               // Can be removed, only to check values on console
 
 
 
