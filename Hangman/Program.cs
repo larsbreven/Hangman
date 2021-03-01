@@ -9,7 +9,7 @@ namespace Hangman
         {
             //UserInstruction();                                            // Guidelines and rules for the game presented on the screen for the user
             //InitSecretWord();                                             // Secret word is randomized, defined and stored
-            //PlayCheckGuess();                                             // Guess the secret word and check result
+            //EnterGuess();                                                 // Guess the secret word and check result
             //Secretword()                                                  // Letter is in secret word, replace symbols in Char Array
             //AddtoStringbuild();                                           // Letter is not in secret word, add letter in Stringbuilder
             //ReduceGuesses();                                              // Get information from arrays if letters was in secret word or not
