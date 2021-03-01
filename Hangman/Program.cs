@@ -14,7 +14,7 @@ namespace Hangman
             //AddtoStringbuild();                                           // Letter is not in secret word, add letter in Stringbuilder
             //ReduceGuesses();                                              // Get information from arrays if letters was in secret word or not
             //WinOrNot();                                                   // Go to either win procedure or to new guesses 
-            //Output();                                                     // Inform on console about the win
+            //OutputWinConsole();                                           // Inform on console about the win
 
 
 
@@ -49,7 +49,7 @@ namespace Hangman
             char[] ArraySecretChar = secretWordDefined.ToCharArray();       // Use ToCharArray to convert string to array
             for (int i = 0; i < ArraySecretChar.Length; i++)                // Loop through the array
             {                                                               // Can be removed, check values on console
-                                                                            // Console.WriteLine(ArraySecretChar[i]); --- Write character to console
+            //Console.WriteLine(ArraySecretChar[i]); --- Write character to console
             }                                                               // Can be removed, only to check values on console
 
 
